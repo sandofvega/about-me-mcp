@@ -1,0 +1,13 @@
+---
+alwaysApply: true
+---
+## Overview
+
+Build a personal MCP (Model Context Protocol) server that provides structured, reliable information only about me. The server acts as a single source of truth that AI models or tools can query to answer questions about my background in a consistent and controlled way.
+
+## Core Requirements
+
+* Expose an MCP-compliant API that AI clients can connect to.
+* Store and serve curated, up-to-date personal information.
+* Respond only to queries related to me; reject or safely ignore unrelated requests.
+* Return deterministic, well-structured responses suitable for LLM consumption.
