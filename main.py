@@ -8,7 +8,7 @@ mcp = FastMCP(
 )
 
 @mcp.tool
-def get_about_me() -> str:
+def get_yasin_profile() -> str:
     """Get information about Yasin"""
     with open("data/me.md") as f:
         return f.read()
