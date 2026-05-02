@@ -1,5 +1,6 @@
 from fastmcp import FastMCP
 from starlette.responses import JSONResponse
+from lib.qdrant import search_similar
 
 mcp = FastMCP(
     name="About Yasin",
@@ -7,10 +8,12 @@ mcp = FastMCP(
 )
 
 @mcp.tool
-def get_yasin_profile() -> str:
-    """Get information about Yasin"""
-    with open("data/me.md") as f:
-        return f.read()
+def query(q: str) -> str:
+    """Get 10 sentences about Yasin depending on your query."""
+
+    similar_data = search_similar('hi')
+
+    return "\n".join(f"- {item}" for item in similar_data)
     
 @mcp.custom_route("/health", methods=["GET"])
 async def health_check(request):
